@@ -1,10 +1,39 @@
-import { Link } from "gatsby"
+import { Link, StaticQuery } from "gatsby"
 import PropTypes from "prop-types"
 import React, {Component } from "react"
 
 import {
   Collapse, Nav, Navbar, NavItem, NavLink, NavbarBrand, NavbarToggler
 } from "reactstrap"
+
+const NavItems = () => (
+  <StaticQuery 
+    query={graphql`
+      query {
+        allJavascriptFrontmatter(
+          filter: {frontmatter: {title: {ne: null}}}
+        ) {
+          edges {
+            node {
+              id
+              frontmatter {
+                title
+                path
+              }
+            }
+          }
+        }
+      }
+    `}
+    render={data => <>
+      {data.allJavascriptFrontmatter.edges.map(edge => (
+        <NavItem>
+          <NavLink tag={Link} to={edge.node.frontmatter.path}>{edge.node.frontmatter.title}</NavLink>
+        </NavItem>
+      ))}
+    </>}
+  />
+)
 
 export default class Header extends Component {
   constructor(props) {
@@ -27,12 +56,7 @@ export default class Header extends Component {
         <NavbarToggler onClick={this.toggle} />
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="ml-auto" navbar>
-            <NavItem>
-              <NavLink tag={Link} to="/">{this.props.siteTitle}</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink tag={Link} to="/page-2">Goto page 2</NavLink>
-            </NavItem>
+            <NavItems />
           </Nav>
         </Collapse>
       </Navbar>

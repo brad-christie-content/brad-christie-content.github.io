@@ -4,6 +4,11 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+export const frontmatter = {
+  title: "Page two",
+  path: "/page-2",
+}
+
 const SecondPage = () => (
   <Layout>
     <SEO title="Page two" />

@@ -6,6 +6,11 @@ import Image from "../components/image"
 import PageTitle from "../components/page-title"
 import SEO from "../components/seo"
 
+export const frontmatter = {
+  title: "Home",
+  path: "/",
+}
+
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
