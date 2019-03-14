@@ -1,5 +1,8 @@
 ---
 title: "Template"
+tags:
+  - template
+  - unpublished
 permalink: "short-url-here"
 unpublished: true
 ---
