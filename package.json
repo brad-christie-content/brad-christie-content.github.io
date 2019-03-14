@@ -14,6 +14,7 @@
     "gatsby-plugin-sharp": "^2.0.25",
     "gatsby-source-filesystem": "^2.0.23",
     "gatsby-transformer-javascript-frontmatter": "^2.0.9",
+    "gatsby-transformer-remark": "^2.3.2",
     "gatsby-transformer-sharp": "^2.1.15",
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
@@ -22,6 +23,7 @@
     "reactstrap": "^7.1.0"
   },
   "devDependencies": {
+    "nodemon": "^1.18.10",
     "prettier": "^1.16.4"
   },
   "keywords": [
@@ -34,7 +36,8 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "watch": "nodemon --watch gatsby-config.js --watch gatsby-node.js run develop"
   },
   "repository": {
     "type": "git",

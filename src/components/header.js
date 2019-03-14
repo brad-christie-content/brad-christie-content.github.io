@@ -1,6 +1,6 @@
-import { Link, StaticQuery } from "gatsby"
+import { graphql, Link, StaticQuery } from "gatsby"
 import PropTypes from "prop-types"
-import React, {Component } from "react"
+import React, { Component } from "react"
 
 import {
   Collapse, Nav, Navbar, NavItem, NavLink, NavbarBrand, NavbarToggler
@@ -11,7 +11,9 @@ const NavItems = () => (
     query={graphql`
       query {
         allJavascriptFrontmatter(
-          filter: {frontmatter: {title: {ne: null}}}
+          filter: {
+            frontmatter: { title: { ne: null } }
+          }
         ) {
           edges {
             node {
