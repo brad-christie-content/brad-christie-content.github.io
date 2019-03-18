@@ -22,7 +22,7 @@ const BlogPost = ({ data }) => {
         )}
       </small>
       <div className="my-4" dangerouslySetInnerHTML={{ __html: post.html }} />
-      {post.frontmatter.tags && post.frontmatter.tags.map(tag => (<Button size="sm">{tag}</Button>) )}
+      {post.frontmatter.tags && post.frontmatter.tags.map(tag => (<Button size="sm" key={tag}>{tag}</Button>) )}
     </Layout>
   )
 }

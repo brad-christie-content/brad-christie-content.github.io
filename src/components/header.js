@@ -28,9 +28,9 @@ const NavItems = () => (
       }
     `}
     render={data => <>
-      {data.allJavascriptFrontmatter.edges.map(edge => (
-        <NavItem>
-          <NavLink tag={Link} to={edge.node.frontmatter.path}>{edge.node.frontmatter.title}</NavLink>
+      {data.allJavascriptFrontmatter.edges.map(({ node }) => (
+        <NavItem key={node.frontmatter.path}>
+          <NavLink tag={Link} to={node.frontmatter.path}>{node.frontmatter.title}</NavLink>
         </NavItem>
       ))}
     </>}

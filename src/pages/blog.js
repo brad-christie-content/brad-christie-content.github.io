@@ -30,7 +30,7 @@ const BlogPage = ({ data }) => {
       <Row>
         <Col sm="6">
         {data.allMarkdownRemark.edges.map(({ node }) => (
-          <Card body>
+          <Card body key={node.fields.slug}>
             <CardTitle>{node.frontmatter.title}</CardTitle>
             <CardSubtitle>Jan 1st, 2019</CardSubtitle>
             <CardText>{node.frontmatter.excerpt}</CardText>
